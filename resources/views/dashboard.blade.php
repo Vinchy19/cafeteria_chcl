@@ -6,8 +6,6 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
 @endpush
 
 @section('content')
@@ -65,12 +63,15 @@
                         <div class="user-connect-s">
                             <li>
                                 <i class="fas fa-user-circle"></i>
-                                 {{ auth()->user()->name }}
+                                <a href="{{ route('profile.edit') }}" style="text-decoration: none;">
+                                    {{ auth()->user()->name }}
+                                </a>
                             </li>
-                            <li style="padding-left: 40px;">
+                            <li>
                                 Droit : {{ auth()->user()->role }}
                             </li>
                         </div>
+
                     </ul>
                 </div>
             </nav>

@@ -8,7 +8,6 @@
     <title>@yield('title', 'La Cafétéria du CHCL')</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nanum+Myeongjo&display=swap"
           rel="stylesheet">
@@ -32,8 +31,6 @@
                 @else
 
                     <li><a class="btn" href="{{ route('dashboard') }}">Dashboard</a></li>
-
-
                     <li>
                         <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                             @csrf
