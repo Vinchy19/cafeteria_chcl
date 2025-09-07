@@ -7,8 +7,8 @@ use App\Http\Controllers\VenteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Http\Controllers\Home\DashboardController as HomeDashboardController;
+use App\Http\Controllers\User\DashboardController as UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,11 +45,11 @@ Route::middleware('auth')->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| Routes Administrateur
+| Routes auth et verifier
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'verified'])->prefix('projet')->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [HomeDashboardController::class, 'index'])->name('dashboard');
 
     // Plats
     Route::resource('plats', PlatController::class)->only([
@@ -65,13 +65,12 @@ Route::middleware(['auth', 'verified'])->prefix('projet')->group(function () {
     Route::resource('clients', ClientController::class)->only([
         'index', 'create', 'store', 'edit', 'update'
     ]);
-});
 
-/*
-|--------------------------------------------------------------------------
-| Routes pour les modules
-|--------------------------------------------------------------------------
-*/
+    //users
+    Route::resource('users',UserController::class)->only([
+        'index', 'store', 'edit', 'update'
+    ]);
+});
 
 
 ;

@@ -1,12 +1,11 @@
-<!doctype html>
-<html lang="">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-</head>
-<body>
-<h1> les plats index</h1>
+@extends('layouts.sidebar')
 
-</body>
-</html>
+@section('title', 'Dashboard - Cafétéria CHCL')
+
+<style>
+    .active-plats{
+        background-color: #dbeafe;
+        border-radius: 10px;
+
+    }
+</style>

@@ -3,7 +3,7 @@
 @section('title', 'Dashboard - Cafétéria CHCL')
 
 <style>
-    .active-ventes{
+    .active-users{
         background-color: #dbeafe;
         border-radius: 10px;
 

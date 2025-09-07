@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -37,6 +38,7 @@ class ClientController extends Controller
                 'nom_client' => 'required|string|max:255',
                 'type_client' => 'required|in:etudiant,professeur,personnel admin,invite',
                 'phone_client' => 'nullable|string|max:15',
+                'created_by' => Auth::user()->name,
             ]);
 
             Client::create($request->all());

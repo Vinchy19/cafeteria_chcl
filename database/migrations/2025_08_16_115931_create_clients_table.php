@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nom_client');
             $table->enum('type_client',['etudiant','professeur','personnel admin','invite']);
             $table->string('phone_client')->nullable();
-            $table->timestamps();
+            $table->string('created_by')->nullable();
         });
     }
 
@@ -25,6 +25,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clients');
+        Schema::table('clients', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
+        });
     }
 };
