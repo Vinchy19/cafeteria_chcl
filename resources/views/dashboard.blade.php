@@ -241,16 +241,18 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Graphique 1: Utilisateurs par rôle
             const ctx1 = document.getElementById('totalOrdersChart').getContext('2d');
+            // const admin = document.getElementById('adminCount').value;
+            // const utilisateur = document.getElementById('utilisateurCount').value;
+            // const moderateur = document.getElementById('moderateurCount').value;
             new Chart(ctx1, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Admin', 'Utilisateur', 'Modérateur'],
+                    labels: ['Admin', 'Utilisateur'],
                     datasets: [{
-                        data: [5, 12, 3],
+                        data: [{{ $usersChart['admin'] }}, {{ $usersChart['utilisateur'] }}],
                         backgroundColor: [
                             '#FF6384',
-                            '#36A2EB',
-                            '#FFCE56'
+                            '#36A2EB'
                         ]
                     }]
                 },
@@ -265,13 +267,20 @@
             new Chart(ctx2, {
                 type: 'pie',
                 data: {
-                    labels: ['Régulier', 'Occasionnel', 'VIP'],
+                    labels: ['Etudiant', 'Professeur', 'Personnel Admin', 'Invité'],
                     datasets: [{
-                        data: [45, 25, 10],
+                        // data: [45, 25, 10, 8],
+                        data: [
+                            {{ $clientsChart['etudiant'] }},
+                            {{ $clientsChart['professeur'] }},
+                            {{ $clientsChart['personnel_administratif'] }},
+                            {{ $clientsChart['invite'] }}
+                        ],
                         backgroundColor: [
                             '#4BC0C0',
                             '#9966FF',
-                            '#FF9F40'
+                            '#FF9F40',
+                            '#FF6384'
                         ]
                     }]
                 },
@@ -289,7 +298,7 @@
                     labels: ['Ventes aujourd\'hui', 'Total Clients'],
                     datasets: [{
                         label: 'Statistiques',
-                        data: [28, 80],
+                        data: [{{ $platVenduTotal ?? 0 }}, {{ $nbre_clients ?? 0 }}],
                         backgroundColor: [
                             '#3e95cd',
                             '#8e5ea2'

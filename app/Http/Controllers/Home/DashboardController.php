@@ -40,12 +40,20 @@ class DashboardController extends Controller
             ->selectRaw('SUM(ventes.nbre_plat * plats.prix_plat) as total')
             ->value('total');
 
+        $clientsChart = [
+            'etudiant'    => Client::where('type_client', 'etudiant')->count(),
+            'invite' => Client::where('type_client', 'invite')->count(),
+            'personnel_administratif'=> Client::where('type_client', 'personnel admin')->count(),
+            'professeur'         => Client::where('type_client', 'professeur')->count(),
+        ];
 
-
+        $usersChart = [
+            'admin'    => User::where('role', 'admin')->count(),
+            'utilisateur' => User::where('role', 'user')->count()   ];
 
         return view('dashboard',
             compact('nbre_users','nbre_clients',
-                'platVenduUser','platVenduTotal','revenuUser','revenuTotal')
+                'platVenduUser','platVenduTotal','revenuUser','revenuTotal', 'clientsChart', 'usersChart')
         );
     }
 }

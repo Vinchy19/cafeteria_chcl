@@ -49,7 +49,7 @@
     </tbody>
 </table>
 
-<table class="table2">
+<table class="table1">
     <thead>
     <tr>
         <th>Total Plat</th>
