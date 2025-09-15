@@ -199,7 +199,7 @@
 
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-gray-700 mb-1">Quantité *</label>
-                        <input type="number" name="nbre_plat" id="nbre_plat" min="1" required
+                        <input type="number" name="nbre_plat" id="nbre_plat" min="1" max="1" required
                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 border">
                     </div>
 
