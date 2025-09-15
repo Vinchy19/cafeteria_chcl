@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,30 +33,6 @@
     </script>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen font-sans">
-<!-- Navigation -->
-{{--<header class="bg-amber-700 text-white shadow-md">--}}
-{{--    <nav class="container mx-auto px-4 py-3">--}}
-{{--        <div class="flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">--}}
-{{--            <h1 class="text-2xl font-bold flex items-center">--}}
-{{--                <i class="fa-solid fa-mug-hot mr-2"></i>--}}
-{{--                <a href="{{ route('accueil') }}" class="hover:text-amber-200 transition-colors duration-200">La Cafétéria du CHCL</a>--}}
-{{--            </h1>--}}
-
-{{--            <div class="flex flex-wrap gap-2">--}}
-{{--                @guest--}}
-{{--                    <a class="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded-md transition-colors duration-200 shadow-sm" href="{{ route('login') }}">Login</a>--}}
-{{--                    <a class="bg-amber-800 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-colors duration-200 shadow-sm" href="{{ route('register') }}">Sign Up</a>--}}
-{{--                @else--}}
-{{--                    <a class="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded-md transition-colors duration-200 shadow-sm" href="{{ route('dashboard') }}">Dashboard</a>--}}
-{{--                    <form action="{{ route('logout') }}" method="POST" class="inline">--}}
-{{--                        @csrf--}}
-{{--                        <button type="submit" class="bg-amber-800 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-colors duration-200 shadow-sm">Logout</button>--}}
-{{--                    </form>--}}
-{{--                @endguest--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </nav>--}}
-{{--</header>--}}
 
 <header class="bg-amber-700 text-white shadow-md">
     <nav class="container mx-auto px-4 py-3">
@@ -112,7 +88,6 @@
 
 <!-- JS -->
 <script src="https://kit.fontawesome.com/f546fde413.js" crossorigin="anonymous"></script>
-{{--<script src="{{ asset('js/script.js') }}"></script>--}}
 <script>
     // Toggle du menu mobile
     document.getElementById("menu-toggle").addEventListener("click", function () {

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -38,12 +37,12 @@ class ClientController extends Controller
                 'nom_client' => 'required|string|max:255',
                 'type_client' => 'required|in:etudiant,professeur,personnel admin,invite',
                 'phone_client' => 'nullable|string|max:15',
-                'created_by' => Auth::user()->name,
+                'created_by' => 'string'
             ]);
 
             Client::create($request->all());
 
-            return redirect()->route('front.clients.index')->with('success', 'Client ajouté ');
+            return redirect()->route('clients.index')->with('success', 'Client ajouté ');
         }
     }
 
@@ -78,7 +77,7 @@ class ClientController extends Controller
 
         $client->update($request->all());
 
-        return redirect()->route('front.clients.index')->with('success', 'Client modifié');
+        return redirect()->route('clients.index')->with('success', 'Client modifié');
     }
 
     /**
@@ -88,6 +87,6 @@ class ClientController extends Controller
     {
         //
         $client->delete();
-        return redirect()->route('front.clients.index')->with('success', 'Client supprimé');
+        return redirect()->route('clients.index')->with('success', 'Client supprimé');
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -146,7 +146,8 @@
                 </li>
                 @if(Auth::user()->role == 'admin')
                     <li class="active-users">
-                        <a class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg" href="#">
+                        <a class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg"
+                           href="{{route('users.index')}}">
                             <i class="fas fa-user-tie w-5"></i>
                             <span class="ml-3">Utilisateurs</span>
                         </a>
@@ -186,8 +187,8 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="main-content flex-1 p-6">
-        <div class="animated-background py-5 mb-8 rounded-xl shadow-md border-gradient">
+    <main class="main-content flex-1 p-4">
+        <div class="animated-background py-5 mb-2 rounded-xl shadow-md border-gradient">
             <h1 class="text-4xl font-bold text-center shining-text">
                 CAFETERIA DU CHCL
             </h1>

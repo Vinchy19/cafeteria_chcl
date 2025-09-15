@@ -27,7 +27,7 @@ class DashboardController extends Controller
             ->sum('nbre_plat');
 
         $platVenduTotal = Vente::whereDate('date_vente', $aujourdhui)
-            ->sum('nbre_plat');
+            ->count();
 
         $revenuUser =Vente::where('user_id', Auth::id())
             ->whereDate('date_vente', $aujourdhui)

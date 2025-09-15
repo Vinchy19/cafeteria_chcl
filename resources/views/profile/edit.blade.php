@@ -43,7 +43,8 @@
                             value="{{ old('name', $user->name) }}"
                             required
                             autocomplete="name"
-                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            readonly
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm cursor-not-allowed focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         >
                         @error('name')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -59,7 +60,8 @@
                             value="{{ old('email', $user->email) }}"
                             required
                             autocomplete="email"
-                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            disabled
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm cursor-not-allowed focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         >
                         @error('email')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>

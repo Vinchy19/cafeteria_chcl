@@ -39,7 +39,7 @@ class PlatController extends Controller
 
         Plat::create($request->all());
 
-        return redirect()->route('front.plats.index')->with('success', 'Plat ajouté avec succès');
+        return redirect()->route('plats.index')->with('success', 'Plat ajouté avec succès');
     }
 
     /**
@@ -73,7 +73,7 @@ class PlatController extends Controller
 
         $plat->update($request->all());
 
-        return redirect()->route('front.plats.index')->with('success', 'Plat modifié avec succès ️');
+        return redirect()->route('plats.index')->with('success', 'Plat modifié avec succès ️');
     }
 
 
@@ -84,6 +84,6 @@ class PlatController extends Controller
     {
         //
         $plat->delete();
-        return redirect()->route('front.plats.index')->with('success', 'Plat supprimé');
+        return redirect()->route('plats.index')->with('success', 'Plat supprimé');
     }
 }

@@ -209,7 +209,8 @@
                     <span class="close">&times;</span>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="post" class="space-y-4">
+                    <form action="{{ route('ventes.pdf') }}" method="post" class="space-y-4">
+                        @csrf
                         <div>
                             <label for="date_deb" class="block text-sm font-medium text-gray-700 mb-1">Date de
                                 début</label>
@@ -356,5 +357,4 @@
         });
     </script>
     @endpush
-    </body>
-    </html>
+

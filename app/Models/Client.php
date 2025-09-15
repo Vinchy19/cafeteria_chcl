@@ -8,7 +8,7 @@ class Client extends Model
 {
     //
     protected $fillable = [
-        'nom', 'type_client', 'phone_client','created_by'
+        'nom_client', 'type_client', 'phone_client','created_by'
     ];
 
     // Relation : un client peut faire plusieurs ventes
